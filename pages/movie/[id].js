@@ -23,7 +23,7 @@ export default function MovieItem({info}) {
         <img src={`https://image.tmdb.org/t/p/original${info.poster_path}`} width="400"/>
 
 
-        <Link href="/busca">  Ir para Busca</Link>
+        <Link href="/busca">  Ir para Busca </Link>
 
 
 

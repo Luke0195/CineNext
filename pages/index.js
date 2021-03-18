@@ -7,7 +7,7 @@ export default function Home({results, name}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>CineNext</title>
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE"/>
       </Head>
