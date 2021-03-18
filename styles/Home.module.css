@@ -20,7 +20,13 @@
 
 .main h1{
   color:#fff;
+}
 
+.main p{
+  color:#fff;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .main input{

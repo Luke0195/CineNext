@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link'
-import styles from '../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
 import axios from 'axios'
 
-export default function MovieItem({movieInfo}) {
+export default function MovieItem({info}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,24 +13,19 @@ export default function MovieItem({movieInfo}) {
       </Head>
 
       <main className={styles.main}>
+
         <h1 className={styles.title}>
-         Filme
+         Filme:{info.title}
         </h1>
+        <p> {info.overview}</p>
+        <p>{info.vote_average}</p>
+
+        <img src={`https://image.tmdb.org/t/p/original${info.poster_path}`} width="400"/>
 
 
-        <Link href="/busca">  Ir para </Link>
-        <ul>
-          {results.map(item =>(
-            <li key={item.id}>
-              <a  href={`/movie/${item.id}`}>
-              <>
-                <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width="220"/> <br/>
-                <span>{item.title}</span>
-              </>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <Link href="/busca">  Ir para Busca</Link>
+
+
 
 
 
@@ -39,14 +34,16 @@ export default function MovieItem({movieInfo}) {
   )
 }
 
-export async function getStaticProps(context){
-  const id = context.params.id;
-  const response = await axios.get(`http://localhost:3000/api/movie/${id}`);
+export async function getServerSideProps(context){
+  const response = await axios.get(`http://localhost:3000/api/movie/${context.params.id}`);
   const movie = response.data;
+  console.log(movie)
+
 
   return {
     props:{
-     movieInfo: movie,
+      info: movie.info
+
 
     }
   }
