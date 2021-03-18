@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css';
 import axios from 'axios'
 
-export default function Home({results, name}) {
+export default function MovieItem({movieInfo}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +14,7 @@ export default function Home({results, name}) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Filmes em destaque do {name}
+         Filme
         </h1>
 
 
@@ -39,14 +39,14 @@ export default function Home({results, name}) {
   )
 }
 
-export async function getServerSideProps(){
-  const response = await axios.get('http://localhost:3000/api/trending');
-  const {list} = response.data;
+export async function getStaticProps(context){
+  const id = context.params.id;
+  const response = await axios.get(`http://localhost:3000/api/movie/${id}`);
+  const movie = response.data;
 
   return {
     props:{
-      results:list,
-      name: 'Lucas'
+     movieInfo: movie,
 
     }
   }
