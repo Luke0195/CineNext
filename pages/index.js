@@ -1,8 +1,33 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({name}) {
   return (
-  <h1> teste</h1>
+    <div className={styles.container}>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Filmes em destaque do {name}
+        </h1>
+
+
+
+      </main>
+
+
+    </div>
   )
+}
+
+export async function getServerSideProps(){
+  return {
+    props:{
+      name: 'Lucas'
+    }
+  }
+
 }
