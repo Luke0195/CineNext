@@ -7,6 +7,7 @@ export default function Home({name}) {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE"/>
       </Head>
 
       <main className={styles.main}>
