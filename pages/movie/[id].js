@@ -7,7 +7,7 @@ export default function MovieItem({info}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Movie</title>
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE"/>
       </Head>
